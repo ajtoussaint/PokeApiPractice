@@ -1,16 +1,15 @@
 //state dependencies and initialize express
 const express = require('express');
 const app = express();
-const cors = require('cors');
-const bodyParser = require('body-parser')
+app.use(express.static('public'));
 
 //3k for node app
 const port = process.env.PORT || 3000;
 
 //serve the home page
 app.get('/', function(req, res){
-  console.log(process.cwd() + "/views/index.html");
-  res.sendFile(process.cwd() + "/views/index.html");
+  console.log(__dirname + "/views/index.html");
+  res.sendFile(__dirname + "/views/index.html");
 });
 
 //run the app
